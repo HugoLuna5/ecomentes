@@ -36,10 +36,10 @@
     <div *ngIf="_ps.proyectos_filtrado.length > 0 && !_ps.cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4 animated fadeIn">
 
       <a *ngFor="let proyecto of _ps.proyectos_filtrado"
-       [routerLink]="['/proyecto', proyecto.proyecto_uid]" class="rk-item ae-masonry__item"><img src="assets/productos/{{ proyecto.photo }}" alt="">
+       [routerLink]="['/proyecto', proyecto.proyecto_uid]" class="rk-item ae-masonry__item"><img src="{{ proyecto.photo }}" alt="">
         <div class="item-meta">
-          <h2> {{ proyecto.titulo }}</h2>
-          <p> {{ proyecto.categoria }}</p>
+          <h2> {{ proyecto.title }}</h2>
+          <p> {{ proyecto.author }}</p>
         </div></a>
 
 

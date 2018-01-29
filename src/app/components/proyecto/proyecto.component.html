@@ -2,11 +2,11 @@
 <div *ngIf="proyecto">
 
 <!--assets/productos/{{ cod }}/pic-1.jpg-->
-  <header [ngStyle]=" {'background-image': 'url(assets/productos/'+ cod +'/main.jpg)' }"
+  <header [ngStyle]=" {'background-image': 'url('+ proyecto.photo +')' }"
    class="rk-portfolio-cover  item-inside-1">
     <div class="item-inside__meta">
-      <h1 class="ae-u-bolder rk-portfolio-title "> {{ proyecto.producto }}</h1>
-      <p class="ae-theta rk-portfolio-category "> {{ proyecto.categoria}}</p>
+      <h1 class="ae-u-bolder rk-portfolio-title "> {{ proyecto.title }}</h1>
+      <p class="ae-theta rk-portfolio-category "> {{ proyecto.author}}</p>
     </div>
   </header>
   <div class="ae-container-fluid">
@@ -15,14 +15,14 @@
         <h2 class="rk-portfolio-inner-title ">     </h2>
       </div>
       <div class="ae-grid__item item-lg-4 au-xs-ta-center au-lg-ta-right rk-portfolio-details">
-        <p class="rk-portfolio-inner-client "><span class="ae-lambda">Client: </span><span class="ae-u-bolder">Agency Design Studio</span></p>
-        <p class="au-underline rk-portfolio-inner-website "><a href="#0" class="ae-kappa">www.agencydesign.com</a></p>
-        <p class="ae-kappa ae-u-bold rk-portfolio-inner-date ">12 August, 2015</p>
+        <p class="rk-portfolio-inner-client "><span class="ae-lambda">Autor: </span><span class="ae-u-bolder">{{ proyecto.author}}</span></p>
+        <p class="au-underline rk-portfolio-inner-website "><a target="_blank" href="http://ecomentes.lunainc.com.mx" class="ae-kappa">http://ecomentes.lunainc.com.mx</a></p>
+        <p class="ae-kappa ae-u-bold rk-portfolio-inner-date ">{{proyecto.published_date | date: 'yyyy-MM-dd'}}</p>
       </div>
     </div>
   </div>
 
-
+<!--
   <div class="ae-container-fluid ae-container-fluid--inner rk-portfolio--inner">
     <div class="ae-grid ae-grid--collapse au-xs-ptp-1">
       <div class="ae-grid__item item-lg-5 au-lg-ptp-1">
@@ -43,11 +43,15 @@
       </div>
     </div>
   </div>
-
+-->
     <div class="ae-grid ae-grid--collapse au-xs-ptp-1 au-xs-pbp-1">
       <div class="ae-grid__item item-lg-10 item-lg--offset-1">
-        <h4 class="ae-u-bolder">Titulo</h4>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <h4 class="ae-u-bolder">{{proyecto.title}}</h4>
+
+        <markdown align="justify">
+            {{proyecto.body}}
+        </markdown>
+
       </div>
     </div>
 

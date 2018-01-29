@@ -11,6 +11,16 @@ import { InformacionService } from "./services/informacion.service";
 import { ProyectosService } from "./services/proyectos.service";
 
 
+//firebase
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+//markdownView
+import { MarkdownModule } from 'angular2-markdown';
+
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -34,7 +44,11 @@ import { SearchComponent } from './components/search/search.component';
   imports: [
     BrowserModule,
     HttpModule,
-    app_routing
+    app_routing,
+    //AngularFireModule.initializeApp(environment.firebase),
+    //AngularFireDatabaseModule,
+    MarkdownModule.forRoot(),
+
   ],
   providers: [
     InformacionService,
